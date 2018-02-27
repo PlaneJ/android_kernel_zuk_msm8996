@@ -7,6 +7,20 @@
 	/delete-node/ qcom,ois@0;
 	/delete-node/ qcom,eeprom@0;
 	/delete-node/ qcom,camera@0;
+
+	qcom,ois@0 {
+		cell-index = <0x0>;
+		reg = <0x0>;
+		compatible = "qcom,ois";
+		qcom,cci-master = <0x0>;
+		cam_vaf-supply = <0x131>;
+		qcom,cam-vreg-name = "cam_vaf";
+		qcom,cam-vreg-min-voltage = <0x2ab980>;
+		qcom,cam-vreg-max-voltage = <0x2ab980>;
+		qcom,cam-vreg-op-mode = <0x186a0>;
+		linux,phandle = <0x1ee>;
+		phandle = <0x1ee>;
+	};
 	
 	qcom,camera@0 {
 		cell-index = <0>;
@@ -17,6 +31,7 @@
 		qcom,mount-angle = <90>;
 		qcom,led-flash-src = <&led_flash0>;
 		qcom,actuator-src = <&actuator0>;
+		qcom,ois-src = <0x1ee>;
 		qcom,eeprom-src = <&eeprom0>;
 		cam_vdig-supply = <&pm8994_s3>;
 		cam_vio-supply = <&pm8994_lvs1>;
